@@ -7,12 +7,8 @@ function dd($params){
 
 
 function list_accetps($sintaxy){
-  $array = [
-    "nwt.net.br",
-    "gmail.com",
-    "hotmail.com",
-    "yahoo.com"
-  ];
+  $array= file_get_contents("./index.json");
+  $array= json_decode($array)->emails;
 
   if(!in_array($sintaxy, $array)){
     return jsonRender(array("msg" => "profile indisponivel"));
